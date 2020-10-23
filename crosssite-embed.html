@@ -11,6 +11,7 @@
     req.responseType = 'json';
     req.open(requestMethod, "https://coli-conc.gbv.de/crosssite-test/cookies.json", true);
     req.onload  = function() {
+      console.log(req.response)
        var jsonResponse = { method: requestMethod, cookies: req.response };
        window.parent.postMessage(jsonResponse, "https://coli-conc.gbv.de/crosssite-test/");
     };
